@@ -1,6 +1,6 @@
 #/bin/sh
 
-### SCRIPT IPTABLES ###
+### SCRIPT IPTABLES CACA ###
 
 ## FROM LAN -> DMZ
 
