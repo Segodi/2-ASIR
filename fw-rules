@@ -1,12 +1,21 @@
 #!/bin/sh
 #Firewall rules to run system startup
 
+WAN_IFACE="eth0"
+
 case "$1" in
 	start)
 		echo "Starting FireWall"
+		echo "1" > /proc/sys/net/ipv4/ip_forward
+		iptables -t nat -F
+		iptables -F FORWARD
+		iptables -A FORWARD -o $WAN_IFACE
+		iptables -t nat -A POSTROUTING -o $WAN_IFACE -j MASQUERADE
 		;;
 	stop)
 		echo "Stoping FireWall"
+		iptables -t nat -F POSTROUTING
+		iptables -F FORWARD
 		;;
 	restart|reload)
 		$0 stop
