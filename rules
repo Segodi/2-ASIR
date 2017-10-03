@@ -26,6 +26,6 @@ iptables -A FORWARD -o eth2 -m state --state STATE,STABLISHED -j ACCEPT
 
 
 ## FROM LAN & DMZ -> WAN
-
+iptables -t -A -i eth1 -p udp 
 
 
