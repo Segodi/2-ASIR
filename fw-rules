@@ -1,0 +1,20 @@
+#!/bin/sh
+#Firewall rules to run system startup
+
+case "$1" in
+	start)
+		echo "Starting FireWall"
+		;;
+	stop)
+		echo "Stoping FireWall"
+		;;
+	restart|reload)
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart|reload}"
+		exit 1
+		;;
+esac
+exit
