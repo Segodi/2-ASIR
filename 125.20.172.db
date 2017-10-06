@@ -1,0 +1,15 @@
+;
+; BIND reverse data file for local loopback interface
+;
+$TTL    604800 ;
+@       IN      SOA   ns.pc25.s04. root.pc25.com.(
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns.
+55      IN      PTR     srv.pc25.s04.
+57      IN      PTR     eie.pc25.s04.
+
